@@ -8,22 +8,27 @@ import architechtureImg from "./Image_HeathMe/thairis30-workflow.jpg";
 import architechtureMultiImg from "./Image_HeathMe/thairis30-workflow-tele.jpg";
 import realarchitechtureImg from "./Image_HeathMe/HL7-Flow.jpg";
 import Logo from './Image_HeathMe/dlss_1.png'
+import radi from './Image_HeathMe/RadiAnt.png'
+import weasis from './Image_HeathMe/Weasis.png'
+import dcm4chee from './Image_HeathMe/dcm4chee.png'
+import ohi from './Image_HeathMe/Ohi.png'
+
 
 export default function Home() {
 
   // section 2 
-  const company_info = [
-    { label: "Founded", value: "[Year]" },
-    { label: "Team Size", value: "[Number]" },
-    { label: "Location", value: "[City]" },
-    { label: "Projects", value: "[Count]" },]
-
   // section 3 architecture / platform 
   const platforms = [
-    { icon: "🖥️", name: "[Platform 1]", desc: "[e.g., Windows Desktop]" },
-    { icon: "🌐", name: "[Platform 2]", desc: "[e.g., Web Browser]" },
-    { icon: "📱", name: "[Platform 3]", desc: "[e.g., iOS / Android]" },
-    { icon: "☁️", name: "[Platform 4]", desc: "[e.g., Cloud / Server]" },]
+    { icon: "🖥️", name: "Windows/MacOS", desc: "[e.g., Windows Desktop]" },
+    { icon: "🌐", name: "Web-based", desc: "[e.g., Web Browser]" }]
+
+
+  const integrations = [
+    { icon: <Image src={weasis} alt="Weasis" width={100} height={100} />, name: "Weasis" },
+    { icon: <Image src={dcm4chee} alt="dcm4chee" width={300} height={300} />, name: "-" },
+    { icon: <Image src={radi} alt="RadiAnt" width={100} height={100} />, name: "RadiAnt" },
+    { icon: <Image src={ohi} alt="OHIF" width={100} height={100} />, name: "Open Health Imaging Foundation" }
+  ]
 
   // section 4 features
   const features = [
@@ -275,9 +280,9 @@ export default function Home() {
 
           {/* Platform Cards */}
           <h3 className="text-xl font-bold text-center mb-6 text-foreground">
-            Supported Integrations & Viewers
+            Platform Support
           </h3>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-5">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-5 mb-12">
             {platforms.map((platform) => (
               <div
                 key={platform.name}
@@ -287,9 +292,29 @@ export default function Home() {
                 <p className="text-[1.15rem] font-bold text-foreground mb-2">
                   {platform.name}
                 </p>
-                <p className="text-[0.92rem] text-muted leading-relaxed">
-                  {platform.desc}
-                </p>
+
+              </div>
+            ))}
+          </div>
+
+          <h3 className="text-xl font-bold text-center mb-6 text-foreground">
+            Supported Integrations & Viewers
+          </h3>
+
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-5 mb-12">
+            {integrations.map((integration) => (
+              <div
+                key={integration.name}
+                className="bg-white rounded-2xl py-8 px-7 shadow-card border border-primary/[0.06] text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card-hover"
+              >
+                <div className="flex flex-col items-center justify-center ">
+                  <div className="mb-3">{integration.icon}</div>
+                  <p className="text-[1.15rem] font-bold text-foreground mb-2">
+                    {integration.name}
+                  </p>
+                </div>
+
+
               </div>
             ))}
           </div>
@@ -305,9 +330,9 @@ export default function Home() {
             Functionalities
           </h2>
           <div className="w-[60px] h-1 gradient-divider rounded-full mx-auto mt-4 mb-6" />
-          <p className="text-[1.05rem] text-muted text-center max-w-[600px] mx-auto mb-12 leading-relaxed">
+          {/* <p className="text-[1.05rem] text-muted text-center max-w-[600px] mx-auto mb-12 leading-relaxed">
             [Describe the core features and functionalities of your software.]
-          </p>
+          </p> */}
 
           <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
             {features.map((feature) => (
