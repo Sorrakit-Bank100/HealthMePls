@@ -6,7 +6,28 @@ import mammographyImg from "./Image_HeathMe/mammography.png";
 import Image from "next/image";
 import architechtureImg from "./Image_HeathMe/thairis30-workflow.jpg";
 import architechtureMultiImg from "./Image_HeathMe/thairis30-workflow-tele.jpg";
-
+import heah_dash from "./Image_HeathMe/heah_dashboard.png";
+import regist from "./Image_HeathMe/regist.png";
+import seach_p from "./Image_HeathMe/search_patient.png";
+import create_order from "./Image_HeathMe/create_order.png";
+import a from "./Image_HeathMe/1.png";
+import b from "./Image_HeathMe/2.png";
+import c from "./Image_HeathMe/3.png";
+import d from "./Image_HeathMe/4.png";
+import e from "./Image_HeathMe/5.png";
+import f from "./Image_HeathMe/6.png";
+import g from "./Image_HeathMe/7.png";
+import h from "./Image_HeathMe/8.png";
+import i from "./Image_HeathMe/9.png";
+import k from "./Image_HeathMe/10.png";
+import a1 from "./Image_HeathMe/11.png";
+import a2 from "./Image_HeathMe/12.png";
+import a3 from "./Image_HeathMe/13.png";
+import a4 from  "./Image_HeathMe/15.png";
+import a5 from "./Image_HeathMe/16.png";
+import a6 from "./Image_HeathMe/17.png";
+import a7 from "./Image_HeathMe/18.png";
+import a8 from "./Image_HeathMe/19.png";
 export default function Home() {
 
   // section 2 
@@ -370,7 +391,7 @@ export default function Home() {
                   <rect x="2" y="3" width="20" height="14" rx="2" />
                   <path d="M8 21h8M12 17v4" />
                 </svg>
-                <p>[Screenshot of UI 1]</p>
+                <p><Image src={heah_dash} alt="heah_dash" width={800} height={800} /></p>
               </div>
             </div>
             <div>
@@ -389,46 +410,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* UI Item 2 — Text Left, Image Right (reversed) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-14">
-            <div className="md:order-2">
-              <h3 className="text-[1.4rem] font-bold text-foreground mb-3">
-                [Interface Type 2 — e.g., Mobile App]
-              </h3>
-              <p className="text-muted leading-relaxed text-[0.98rem]">
-                [Describe this user interface: what it looks like, who uses it, and what functionality it provides. Include details about responsiveness and mobile-specific features.]
-              </p>
-            </div>
-            <div className="bg-gradient-to-br from-bg-section to-[#E0ECFF] rounded-2xl flex items-center justify-center text-primary font-semibold text-[0.95rem] border-2 border-dashed border-primary/25 min-h-[260px] text-center p-5 md:order-1">
-              <div>
-                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" strokeWidth="1.5" strokeLinecap="round" className="mb-3">
-                  <rect x="5" y="2" width="14" height="20" rx="2" />
-                  <path d="M12 18h.01" />
-                </svg>
-                <p>[Screenshot of UI 2]</p>
-              </div>
-            </div>
-          </div>
+         
 
-          {/* UI Item 3 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-            <div className="bg-gradient-to-br from-bg-section to-[#E0ECFF] rounded-2xl flex items-center justify-center text-primary font-semibold text-[0.95rem] border-2 border-dashed border-primary/25 min-h-[260px] text-center p-5">
-              <div>
-                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" strokeWidth="1.5" strokeLinecap="round" className="mb-3">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                </svg>
-                <p>[Screenshot of UI 3]</p>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-[1.4rem] font-bold text-foreground mb-3">
-                [Interface Type 3 — e.g., API / CLI]
-              </h3>
-              <p className="text-muted leading-relaxed text-[0.98rem]">
-                [Describe this user interface: what it looks like, who uses it, and what functionality it provides. This could be an API, command-line interface, or another type of interface.]
-              </p>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -436,43 +420,160 @@ export default function Home() {
           Section 6: Screen Results
           ============================================ */}
       <section id="screen-results" className="py-20 px-6 md:py-24 lg:py-28 bg-white relative overflow-hidden">
-        <div className="max-w-[1200px] mx-auto relative z-[2]">
-          <h2 className="text-3xl md:text-[2.5rem] font-extrabold text-foreground text-center mb-3 tracking-tight">
-            Screen Results
-          </h2>
-          <div className="w-[60px] h-1 gradient-divider rounded-full mx-auto mt-4 mb-6" />
-          <p className="text-[1.05rem] text-muted text-center max-w-[600px] mx-auto mb-12 leading-relaxed">
-            [Screenshots showcasing your software with real data and results.]
-          </p>
+<div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
+  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ,12, 13, 14, 15, 16, 17, 18, 19 ,20, 21].map((num) => {
+    
+    // 2. สร้างตัวแปรเก็บข้อมูลตามเลข num
+    let currentImg = null;
+    let title = `[Screen Title ${num}]`;
+    let description = "[Brief caption describing what this screen shows]";
 
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
-            {[1, 2, 3, 4, 5, 6].map((num) => (
-              <div
-                key={num}
-                className="bg-white rounded-2xl overflow-hidden shadow-card border border-primary/[0.06] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card-hover"
-              >
-                <div className="bg-gradient-to-br from-bg-section to-[#E0ECFF] flex items-center justify-center text-primary font-semibold border-b-2 border-dashed border-primary/25 min-h-[200px] text-center p-5">
-                  <div>
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" strokeWidth="1.5" strokeLinecap="round" className="mb-2">
-                      <rect x="3" y="3" width="18" height="18" rx="3" />
-                      <circle cx="8.5" cy="8.5" r="1.5" />
-                      <path d="M21 15l-5-5L5 21" />
-                    </svg>
-                    <p className="text-[0.85rem]">[Screenshot {num}]</p>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <p className="font-semibold text-foreground text-[0.95rem] mb-1">
-                    [Screen Title {num}]
-                  </p>
-                  <p className="text-muted text-[0.85rem] leading-normal">
-                    [Brief caption describing what this screen shows]
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+    // 3. ใช้ switch เช็คว่า num ไหนใช้รูป/ข้อความอะไร
+    switch(num) {
+      case 1:
+        currentImg = regist.src;
+        title = "Registration Screen";
+        description = "User sign-up and profile creation flow.";
+        break;
+      case 2:
+        currentImg = seach_p.src; // ใส่รูปที่ import มา
+        title = "seach pat";
+        description = "Secure access to user accounts.";
+        break;
+      case 3:
+        currentImg = create_order.src;
+        title = "create order";
+        description = "Overview of health statistics.";
+        break;
+      case 4:
+        currentImg = a.src;
+        title = "Main Dashboard";
+        description = "Overview of health statistics.";
+        break;       
+      case 5:
+        currentImg = b.src;
+        title = "Main Dashboard";
+        description = "Overview of health statistics.";
+        break;
+      case 6:
+        currentImg = c.src;
+        title = "Main Dashboard";
+        description = "Overview of health statistics.";
+        break;
+      case 7:
+        currentImg = d.src;
+        title = "Main Dashboard";
+        description = "Overview of health statistics.";
+        break;
+      case 8:
+        currentImg = e.src;
+        title = "Main Dashboard";
+        description = "Overview of health statistics.";
+        break;
+      case 9:
+        currentImg = f.src;
+        title = "Main Dashboard";
+        description = "Overview of health statistics.";
+        break;
+      case 10:
+        currentImg = g.src;
+        title = "Main Dashboard";
+        description = "Overview of health statistics.";
+        break;
+      case 11:
+        currentImg = h.src;
+        title = "Main Dashboard";
+        description = "Overview of health statistics.";
+        break;
+      case 12:
+        currentImg = i.src;
+        title = "Main Dashboard";
+        description = "Overview of health statistics.";
+        break;
+      case 13:
+        currentImg = k.src;
+        title = "Main Dashboard";
+        description = "Overview of health statistics.";
+        break; 
+      case 14:
+        currentImg = a1.src;
+        title = "Main Dashboard";
+        description = "Overview of health statistics.";
+        break; 
+      case 15:
+        currentImg = a2.src;
+        title = "Main Dashboard";
+        description = "Overview of health statistics.";
+        break;
+      case 16:
+        currentImg = a3.src;
+        title = "Main Dashboard";
+        description = "Overview of health statistics.";
+        break; 
+      case 17:
+        currentImg = a4.src;
+        title = "Main Dashboard";
+        description = "Overview of health statistics.";
+        break;  
+      case 18:
+        currentImg = a5.src;
+        title = "Main Dashboard";
+        description = "Overview of health statistics.";
+        break;
+      case 19:
+        currentImg = a6.src;
+        title = "Main Dashboard";
+        description = "Overview of health statistics.";
+        break;
+      case 20:
+        currentImg = a7.src;
+        title = "Main Dashboard";
+        description = "Overview of health statistics.";
+        break;  
+      case 21:
+        currentImg = a8.src;
+        title = "Main Dashboard";
+        description = "Overview of health statistics.";
+        break;                                                                     
+        // เพิ่ม case 4, 5, 6 ได้ที่นี่
+    }
+
+    return (
+      <div
+        key={num}
+        className="bg-white rounded-2xl overflow-hidden shadow-card border border-primary/[0.06] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card-hover"
+      >
+        <div className="bg-gradient-to-br from-bg-section to-[#E0ECFF] flex items-center justify-center text-primary font-semibold border-b-2 border-dashed border-primary/25 min-h-[200px] text-center p-5">
+          {currentImg ? (
+            <img 
+              src={currentImg} 
+              alt={title} 
+              className="w-full h-[200px] object-cover" 
+            />
+          ) : (
+            <div>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" strokeWidth="1.5" strokeLinecap="round" className="mb-2 mx-auto">
+                <rect x="3" y="3" width="18" height="18" rx="3" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <p className="text-[0.85rem]">[Screenshot {num}]</p>
+            </div>
+          )}
         </div>
+        
+        <div className="p-6">
+          <p className="font-semibold text-foreground text-[0.95rem] mb-1">
+            {title}
+          </p>
+          <p className="text-muted text-[0.85rem] leading-normal">
+            {description}
+          </p>
+        </div>
+      </div>
+    );
+  })}
+</div>
       </section>
 
       <Footer />
