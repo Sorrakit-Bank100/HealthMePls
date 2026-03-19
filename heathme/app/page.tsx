@@ -2,6 +2,10 @@
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import mammographyImg from "./Image_HeathMe/mammography.png";
+import Image from "next/image";
+import architechtureImg from "./Image_HeathMe/thairis30-workflow.jpg";
+import architechtureMultiImg from "./Image_HeathMe/thairis30-workflow-tele.jpg";
 
 export default function Home() {
 
@@ -19,14 +23,80 @@ export default function Home() {
     { icon: "📱", name: "[Platform 3]", desc: "[e.g., iOS / Android]" },
     { icon: "☁️", name: "[Platform 4]", desc: "[e.g., Cloud / Server]" },]
 
-  // section 4 features 
+  // section 4 features
   const features = [
-    { icon: "🔍", title: "[Feature 1]", desc: "[Briefly describe what this feature does and its benefit to the user.]" },
-    { icon: "💊", title: "[Feature 2]", desc: "[Briefly describe what this feature does and its benefit to the user.]" },
-    { icon: "💬", title: "[Feature 3]", desc: "[Briefly describe what this feature does and its benefit to the user.]" },
-    { icon: "📋", title: "[Feature 4]", desc: "[Briefly describe what this feature does and its benefit to the user.]" },
-    { icon: "🚑", title: "[Feature 5]", desc: "[Briefly describe what this feature does and its benefit to the user.]" },
-    { icon: "📚", title: "[Feature 6]", desc: "[Briefly describe what this feature does and its benefit to the user.]" },
+    {
+      icon: "📋",
+      color: "bg-blue-100 text-blue-600",
+      title: "Smart Workflow",
+      items: [
+        "Patient Registration (Manual & MWL)",
+        "Scheduling & Appointment",
+        "Radiologist Worklist & Assignment",
+        "Multi-Site & Tele-Radiology Support",
+        "CD/Film Usage Tracking",
+      ],
+    },
+    {
+      icon: "✏️",
+      color: "bg-emerald-100 text-emerald-600",
+      title: "Professional Reporting",
+      items: [
+        "Customizable Report Templates",
+        "Digital Signature Support",
+        "Add Key Images to Reports",
+        "Mammography BIRADs Tracking",
+        "Addendum & Preliminary Reports",
+      ],
+    },
+    {
+      icon: "🔗",
+      color: "bg-violet-100 text-violet-600",
+      title: "Seamless Integration",
+      items: [
+        "HL7 Interface (ADT, ORM, ORU)",
+        "Connects with DCM4CHEE & Orthanc",
+        "Integrated Viewers (Weasis, OHIF, RadiAnt)",
+        "API for Exam Creation (JSON)",
+        "Lab Result Integration",
+      ],
+    },
+    {
+      icon: "📊",
+      color: "bg-orange-100 text-orange-600",
+      title: "Analytics & Stats",
+      items: [
+        "Turn Around Time (TAT) Reports",
+        "Radiologist Workload Statistics",
+        "Referrer & Modality Analytics",
+        "Export Data to Excel/PDF",
+        "Procedure Statistics",
+      ],
+    },
+    {
+      icon: "🔒",
+      color: "bg-red-100 text-red-500",
+      title: "Admin & Security",
+      items: [
+        "Comprehensive User Management",
+        "2-Factor Authentication (2FA)",
+        "Detailed Audit Logging",
+        "Procedure & Staff Management",
+        "Multi-Language Support",
+      ],
+    },
+    {
+      icon: "🧪",
+      color: "bg-purple-100 text-purple-600",
+      title: "Advanced Tools",
+      items: [
+        "Internal Webboard / Messaging",
+        "Teaching Files System",
+        "Transcriptionist Workflow",
+        "Document & Scan Uploads",
+        "100% Web-Based (Zero Footprint)",
+      ],
+    },
   ]
 
   return (
@@ -45,16 +115,11 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto relative z-[2] grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full">
           {/* Text Content */}
           <div className="animate-fade-in-up">
-            <p className="text-white/80 font-semibold text-[0.95rem] mb-3 tracking-widest uppercase">
-              Welcome to
-            </p>
             <h1 className="text-[clamp(2.5rem,6vw,4rem)] font-extrabold text-white leading-[1.1] mb-5 tracking-tight">
-              [Your Software
-              <br />
-              Name Here]
+              ThaiRDS
             </h1>
             <p className="text-lg text-white/85 leading-relaxed max-w-[520px] mb-8">
-              [Write a brief tagline or description about your software here. Explain what it does and why it matters.]
+              ThaiRIS is especially useful for tracking radiology imaging orders and billing information, and is often used in conjunction with Picture Archiving and Communication Systems (PACS) and VNAs to manage record-keeping, billing, and workflow.
             </p>
             <div className="flex gap-4 flex-wrap">
               <a
@@ -75,12 +140,7 @@ export default function Home() {
           {/*  Illustration Image  */}
           <div className="animate-float bg-white/12 rounded-3xl p-10 backdrop-blur-sm border border-white/20 flex items-center justify-center min-h-[320px] text-white/70 font-semibold text-base text-center">
             <div>
-              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" strokeLinecap="round" className="mb-4">
-                <rect x="3" y="3" width="18" height="18" rx="3" />
-                <circle cx="8.5" cy="8.5" r="1.5" />
-                <path d="M21 15l-5-5L5 21" />
-              </svg>
-              <p>[Place your hero image or illustration here]</p>
+              <p><Image src={mammographyImg} alt="Mammography" width={800} height={800} /></p>
             </div>
           </div>
         </div>
@@ -109,12 +169,13 @@ export default function Home() {
           </h2>
           <div className="w-[60px] h-1 gradient-divider rounded-full mx-auto mt-4 mb-6" />
           <p className="text-[1.05rem] text-muted text-center max-w-[600px] mx-auto mb-12 leading-relaxed">
-            [Briefly describe your company, organization, or development team here.]
+            ThaiRIS
+            เป็น Software Open Source
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Company Logo / Image */}
-            <div className="bg-gradient-to-br from-bg-section to-[#E0ECFF] rounded-2xl flex items-center justify-center text-primary font-semibold text-[0.95rem] border-2 border-dashed border-primary/25 min-h-[280px] text-center p-5">
+            <div className="bg-linear-to-br from-bg-section to-[#E0ECFF] rounded-2xl flex items-center justify-center text-primary font-semibold text-[0.95rem] border-2 border-dashed border-primary/25 min-h-[280px] text-center p-5">
               <div>
                 <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" strokeWidth="1.5" strokeLinecap="round" className="mb-3">
                   <path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16" />
@@ -124,27 +185,56 @@ export default function Home() {
             </div>
 
             {/* Company Info */}
-            <div>
-              <h3 className="text-[1.6rem] font-bold text-foreground mb-4">
-                [Company / Organization Name]
-              </h3>
-              <p className="text-muted leading-relaxed text-base mb-5">
-                [Describe the company background, mission, and vision here. Who are the developers? What drives the team? Include relevant history or notable achievements.]
-              </p>
-              <div className="grid grid-cols-[repeat(auto-fit,minmax(140px,1fr))] gap-4">
-                {company_info.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="bg-bg-soft rounded-xl py-4 px-5 text-center"
+            <div className="flex flex-col gap-6">
+              <div>
+                <h3 className="text-[1.8rem] font-extrabold text-foreground mb-1 tracking-tight">
+                  ThaiRIS
+                </h3>
+                <p className="text-primary font-semibold text-[1rem] mb-6 tracking-wide uppercase">
+                  Thai Radiology Information System
+                </p>
+              </div>
+
+              {/* Objective Card */}
+              <div className="flex gap-4 bg-linear-to-br from-[#F0F6FF] to-[#E8F0FE] rounded-2xl p-5 border border-primary/10 shadow-sm">
+                <div className="shrink-0 w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-xl">
+                  🎯
+                </div>
+                <div>
+                  <p className="font-bold text-foreground text-[0.95rem] mb-1">Objective</p>
+                  <p className="text-muted text-[0.88rem] leading-relaxed">
+                    พัฒนาโดยเน้นที่ Software RIS (Radiology Information System) ซึ่งสามารถ Download ใช้ <span className="font-semibold text-primary">Free Version</span>
+                  </p>
+                </div>
+              </div>
+
+              {/* Develop Card */}
+              <div className="flex gap-4 bg-linear-to-br from-[#F0FFF8] to-[#E6F7EE] rounded-2xl p-5 border border-emerald-200/60 shadow-sm">
+                <div className="shrink-0 w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-xl">
+                  💻
+                </div>
+                <div>
+                  <p className="font-bold text-foreground text-[0.95rem] mb-1">Development</p>
+                  <p className="text-muted text-[0.88rem] leading-relaxed">
+                    พัฒนาโดยใช้ <span className="font-semibold text-emerald-700">PHP, JavaScript</span> และเชื่อมต่อ Database ด้วย <span className="font-semibold text-emerald-700">MySQL</span> — เป็น Web Application ที่ใช้มาตรฐาน <span className="font-semibold text-emerald-700">HL7, HIPAA & IHE</span>
+                  </p>
+                </div>
+              </div>
+
+              {/* Contact Card */}
+              <div className="flex gap-4 bg-linear-to-br from-[#FFF8F0] to-[#FEF0E6] rounded-2xl p-5 border border-orange-200/60 shadow-sm">
+                <div className="shrink-0 w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center text-xl">
+                  📧
+                </div>
+                <div>
+                  <p className="font-bold text-foreground text-[0.95rem] mb-1">Contact</p>
+                  <a
+                    href="mailto:info.xraythai@gmail.com"
+                    className="text-[0.88rem] text-orange-600 font-semibold hover:underline"
                   >
-                    <p className="font-extrabold text-[1.3rem] text-primary mb-1">
-                      {stat.value}
-                    </p>
-                    <p className="text-[0.82rem] text-muted font-medium">
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
+                    info.xraythai@gmail.com
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -167,26 +257,20 @@ export default function Home() {
           </h2>
           <div className="w-[60px] h-1 gradient-divider rounded-full mx-auto mt-4 mb-6" />
           <p className="text-[1.05rem] text-muted text-center max-w-[600px] mx-auto mb-12 leading-relaxed">
-            [Describe the overall software architecture and the platforms it supports.]
+            Optimized processes for Hospital and Tele-Radiology environments
           </p>
 
           {/* Architecture Diagram Placeholder */}
           <div className="bg-gradient-to-br from-bg-section to-[#E0ECFF] rounded-2xl flex items-center justify-center text-primary font-semibold text-[0.95rem] border-2 border-dashed border-primary/25 min-h-[240px] mb-12 max-w-[800px] mx-auto text-center p-5">
-            <div>
-              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" strokeWidth="1.5" strokeLinecap="round" className="mb-3">
-                <rect x="2" y="2" width="6" height="6" rx="1" />
-                <rect x="16" y="2" width="6" height="6" rx="1" />
-                <rect x="9" y="16" width="6" height="6" rx="1" />
-                <path d="M5 8v2a4 4 0 004 4h6a4 4 0 004-4V8" />
-                <path d="M12 14v2" />
-              </svg>
-              <p>[Place your architecture diagram here]</p>
+            <div className="flex flex-col items-center justify-center gap-14">
+              <p><Image src={architechtureImg} alt="architechtureImg" width={800} height={800} /></p>
+              <p><Image src={architechtureMultiImg} alt="architechtureImg" width={800} height={800} /></p>
             </div>
           </div>
 
           {/* Platform Cards */}
           <h3 className="text-xl font-bold text-center mb-6 text-foreground">
-            Supported Platforms
+            Supported Integrations & Viewers
           </h3>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-5">
             {platforms.map((platform) => (
@@ -224,17 +308,27 @@ export default function Home() {
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className="bg-white rounded-2xl py-8 px-7 shadow-card border border-primary/[0.06] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card-hover"
+                className="bg-white rounded-2xl py-8 px-7 shadow-card border border-primary/[0.06] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card-hover group"
               >
-                <div className="w-14 h-14 rounded-[14px] gradient-primary flex items-center justify-center mb-5 text-2xl text-white">
+                {/* Icon Badge */}
+                <div className={`w-14 h-14 rounded-[14px] flex items-center justify-center mb-5 text-2xl ${feature.color}`}>
                   {feature.icon}
                 </div>
-                <h3 className="text-[1.15rem] font-bold text-foreground mb-2">
+
+                {/* Title */}
+                <h3 className="text-[1.1rem] font-bold text-foreground mb-4">
                   {feature.title}
                 </h3>
-                <p className="text-[0.92rem] text-muted leading-relaxed">
-                  {feature.desc}
-                </p>
+
+                {/* Checklist */}
+                <ul className="flex flex-col gap-2">
+                  {feature.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-[0.88rem] text-muted leading-snug">
+                      <span className="mt-[2px] text-emerald-500 font-bold shrink-0">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
