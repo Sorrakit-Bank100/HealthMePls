@@ -429,7 +429,7 @@ export default function Home() {
             </div>
             <div>
               <h3 className="text-[1.4rem] font-bold text-foreground mb-3">
-                [Interface Type 1 — e.g., Web Dashboard]
+                [Web Dashboard]
               </h3>
               <p className="text-muted leading-relaxed text-[0.98rem] mb-4">
                 [Describe this user interface: what it looks like, who uses it, and what functionality it provides. Include details about the design approach and user experience.]
