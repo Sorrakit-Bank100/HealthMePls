@@ -6,6 +6,8 @@ import mammographyImg from "./Image_HeathMe/mammography.png";
 import Image from "next/image";
 import architechtureImg from "./Image_HeathMe/thairis30-workflow.jpg";
 import architechtureMultiImg from "./Image_HeathMe/thairis30-workflow-tele.jpg";
+import realarchitechtureImg from "./Image_HeathMe/HL7-Flow.jpg";
+import Logo from './Image_HeathMe/dlss_1.png'
 
 export default function Home() {
 
@@ -138,7 +140,7 @@ export default function Home() {
           </div>
 
           {/*  Illustration Image  */}
-          <div className="animate-float bg-white/12 rounded-3xl p-10 backdrop-blur-sm border border-white/20 flex items-center justify-center min-h-[320px] text-white/70 font-semibold text-base text-center">
+          <div className="animate-float rounded-3xl p-10   flex items-center justify-center min-h-[320px]  text-center">
             <div>
               <p><Image src={mammographyImg} alt="Mammography" width={800} height={800} /></p>
             </div>
@@ -175,12 +177,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Company Logo / Image */}
-            <div className="bg-linear-to-br from-bg-section to-[#E0ECFF] rounded-2xl flex items-center justify-center text-primary font-semibold text-[0.95rem] border-2 border-dashed border-primary/25 min-h-[280px] text-center p-5">
+            <div className="animate-float   ">
               <div>
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" strokeWidth="1.5" strokeLinecap="round" className="mb-3">
-                  <path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16" />
-                </svg>
-                <p>[Place your company logo or team photo here]</p>
+                <p> <Image src={Logo} alt="Logo" width={700} height={700} /></p>
               </div>
             </div>
 
@@ -201,8 +200,8 @@ export default function Home() {
                   🎯
                 </div>
                 <div>
-                  <p className="font-bold text-foreground text-[0.95rem] mb-1">Objective</p>
-                  <p className="text-muted text-[0.88rem] leading-relaxed">
+                  <p className="font-bold text-foreground text-2xl mb-1">Objective</p>
+                  <p className="text-muted text-[1.00rem] leading-relaxed">
                     พัฒนาโดยเน้นที่ Software RIS (Radiology Information System) ซึ่งสามารถ Download ใช้ <span className="font-semibold text-primary">Free Version</span>
                   </p>
                 </div>
@@ -214,8 +213,8 @@ export default function Home() {
                   💻
                 </div>
                 <div>
-                  <p className="font-bold text-foreground text-[0.95rem] mb-1">Development</p>
-                  <p className="text-muted text-[0.88rem] leading-relaxed">
+                  <p className="font-bold text-foreground text-2xl  mb-1">Development</p>
+                  <p className="text-muted text-[1.00rem] leading-relaxed">
                     พัฒนาโดยใช้ <span className="font-semibold text-emerald-700">PHP, JavaScript</span> และเชื่อมต่อ Database ด้วย <span className="font-semibold text-emerald-700">MySQL</span> — เป็น Web Application ที่ใช้มาตรฐาน <span className="font-semibold text-emerald-700">HL7, HIPAA & IHE</span>
                   </p>
                 </div>
@@ -227,10 +226,10 @@ export default function Home() {
                   📧
                 </div>
                 <div>
-                  <p className="font-bold text-foreground text-[0.95rem] mb-1">Contact</p>
+                  <p className="font-bold text-foreground text-2xl  mb-1">Contact</p>
                   <a
                     href="mailto:info.xraythai@gmail.com"
-                    className="text-[0.88rem] text-orange-600 font-semibold hover:underline"
+                    className="text-[1.00rem] text-blue-700 font-semibold hover:underline"
                   >
                     info.xraythai@gmail.com
                   </a>
@@ -263,8 +262,14 @@ export default function Home() {
           {/* Architecture Diagram Placeholder */}
           <div className="bg-gradient-to-br from-bg-section to-[#E0ECFF] rounded-2xl flex items-center justify-center text-primary font-semibold text-[0.95rem] border-2 border-dashed border-primary/25 min-h-[240px] mb-12 max-w-[800px] mx-auto text-center p-5">
             <div className="flex flex-col items-center justify-center gap-14">
-              <p><Image src={architechtureImg} alt="architechtureImg" width={800} height={800} /></p>
-              <p><Image src={architechtureMultiImg} alt="architechtureImg" width={800} height={800} /></p>
+              <p className="text-xl font-bold text-center mb-6 text-foreground"> Data Flow Architecture
+                <Image src={realarchitechtureImg} alt="realarchitechtureImg" width={800} height={800} /></p>
+
+              <p className="text-xl font-bold text-center mb-6 text-foreground"> RIS Simple Workflow
+                <Image src={architechtureImg} alt="architechtureImg" width={800} height={800} /></p>
+
+              <p className="text-xl font-bold text-center mb-6 text-foreground"> RIS Tele-Radiology Workflow
+                <Image src={architechtureMultiImg} alt="architechtureImg" width={800} height={800} /></p>
             </div>
           </div>
 
