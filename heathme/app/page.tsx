@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import mammographyImg from "./Image_HeathMe/mammography.png";
@@ -16,7 +18,7 @@ import weasis from './Image_HeathMe/Weasis.png'
 import dcm4chee from './Image_HeathMe/dcm4chee.png'
 import ohi from './Image_HeathMe/Ohi.png'
 import heah_dash from "./Image_HeathMe/heah_dashboard.png";
-import regist from "./Image_HeathMe/regist.png";
+import regist from "./Image_HeathMe/re1.png";
 import seach_p from "./Image_HeathMe/search_patient.png";
 import create_order from "./Image_HeathMe/create_order.png";
 import a from "./Image_HeathMe/1.png";
@@ -37,8 +39,16 @@ import a5 from "./Image_HeathMe/16.png";
 import a6 from "./Image_HeathMe/17.png";
 import a7 from "./Image_HeathMe/18.png";
 import a8 from "./Image_HeathMe/19.png";
+import login from "./Image_HeathMe/login.png";
 
 export default function Home() {
+
+  const [selectedImage, setSelectedImage] = useState<{ img: string; title: string; description: string } | null>(null);
+  const handleImageClick = (img: string, title: string, description: string) => {
+    if (!img) return;
+    setSelectedImage({ img, title, description });
+  };
+  const closeLightbox = () => setSelectedImage(null);
 
   // section 2 
   // section 3 architecture / platform 
@@ -412,28 +422,47 @@ export default function Home() {
             User Interfaces
           </h2>
           <div className="w-[60px] h-1 gradient-divider rounded-full mx-auto mt-4 mb-6" />
-          <p className="text-[1.05rem] text-muted text-center max-w-[600px] mx-auto mb-12 leading-relaxed">
-            [Describe the types of user interfaces your software supports.]
-          </p>
+          
 
           {/* UI Item 1 — Image Left, Text Right */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-14">
             <div className="bg-gradient-to-br from-bg-section to-[#E0ECFF] rounded-2xl flex items-center justify-center text-primary font-semibold text-[0.95rem] border-2 border-dashed border-primary/25 min-h-[260px] text-center p-5">
               <div>
-                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" strokeWidth="1.5" strokeLinecap="round" className="mb-3">
-                  <rect x="2" y="3" width="20" height="14" rx="2" />
-                  <path d="M8 21h8M12 17v4" />
-                </svg>
-                <p><Image src={heah_dash} alt="heah_dash" width={800} height={800} /></p>
+                
+                <p><Image src={login} alt="heah_dash" width={800} height={800} /></p>
               </div>
             </div>
             <div>
               <h3 className="text-[1.4rem] font-bold text-foreground mb-3">
-                [Web Dashboard]
+                 Radiology ThaiRIS Version 1.8 demo online
               </h3>
-              <p className="text-muted leading-relaxed text-[0.98rem] mb-4">
-                [Describe this user interface: what it looks like, who uses it, and what functionality it provides. Include details about the design approach and user experience.]
-              </p>
+              <div className="text-muted text-[0.98rem] leading-relaxed mb-4 flex flex-col gap-3">
+  
+  <p className="font-bold text-foreground text-lg">ThaiRIS Version 1.8 (2021)</p>
+
+  <p>
+    ThaiRIS is a software developed for Radiology departments. Designed as a web-based application 
+    with high flexibility and ease of use. ThaiRIS can be customized for any style of workflow, 
+    following HL7, HIPAA and IHE protocol standards.
+  </p>
+
+  
+
+  <div className="flex flex-col gap-1 text-[0.9rem] text-muted">
+    <p> <span className="font-semibold">By:</span> ThaiRIS</p>
+    <p> <span className="font-semibold">Contact:</span>{" "}
+      <a href="mailto:info.xraythai@gmail.com" className="text-blue-600 hover:underline">
+        info.xraythai@gmail.com
+      </a>
+    </p>
+    <p> <span className="font-semibold">Website:</span>{" "}
+      <a href="https://www.thairis.net" target="_blank" className="text-blue-600 hover:underline">
+        www.thairis.net
+      </a>
+    </p>
+  </div>
+
+</div>
               <a
                 href="#screen-results"
                 className="inline-flex items-center gap-2 py-2.5 px-6 gradient-primary text-white font-semibold text-[0.9rem] rounded-full no-underline shadow-btn hover:-translate-y-0.5 transition-transform duration-300"
@@ -449,12 +478,14 @@ export default function Home() {
         </div>
       </section>
 
+      
+
       {/* ============================================
           Section 6: Screen Results
           ============================================ */}
       <section id="screen-results" className="py-20 px-6 md:py-24 lg:py-28 bg-white relative overflow-hidden">
 <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
-  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ,12, 13, 14, 15, 16, 17, 18, 19 ,20, 21].map((num) => {
+  {[0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ,12, 13].map((num) => {
     
     // 2. สร้างตัวแปรเก็บข้อมูลตามเลข num
     let currentImg = null;
@@ -463,118 +494,84 @@ export default function Home() {
 
     // 3. ใช้ switch เช็คว่า num ไหนใช้รูป/ข้อความอะไร
     switch(num) {
+      case 0:
+        currentImg = heah_dash.src;
+        title = "Home Screen";
+        description = "Dashboard สรุปยอดงานในแต่ละวันว่ามีคิวค้างอยู่ที่ขั้นตอนไหนบ้าง เพื่อให้บริหารจัดการคนไข้ได้อย่างรวดเร็ว";
+        break;
       case 1:
         currentImg = regist.src;
         title = "Registration Screen";
-        description = "User sign-up and profile creation flow.";
+        description = "Search Patient ใช้สำหรับตรวจสอบว่าคนไข้ ค้นหาได้จาก MRN, ชื่อ-นามสกุล และ Create new patient บันทึกข้อมูลพื้นฐานของคนไข้ใหม่";
         break;
       case 2:
-        currentImg = seach_p.src; // ใส่รูปที่ import มา
-        title = "seach pat";
-        description = "Secure access to user accounts.";
+        currentImg = create_order.src;
+        title = "Create order Screen";
+        description = "Create Order (การสร้างใบสั่งตรวจรังสี) ขั้นตอนต่อจากการลงทะเบียนโดยมีข้อมูลพื้นฐานด้านซ้าย , รายการตรวจส่วนกลาง , สรุปรายการสั่งตรวจด้านขวาสีเหลือง";
         break;
       case 3:
-        currentImg = create_order.src;
-        title = "create order";
-        description = "Overview of health statistics.";
+        currentImg = b.src;
+        title = "Search Order Xray Screen";
+        description = "ใช้สำหรับฃตรวจสอบ รายการ Order ที่เคยถูกสร้างขึ้นในระบบ";
         break;
       case 4:
-        currentImg = a.src;
-        title = "Main Dashboard";
-        description = "Overview of health statistics.";
+        currentImg = c.src;
+        title = "Exam Room Screen";
+        description = "รายการงานที่ต้องทำจริง (Worklist) สำหรับนักรังสีเทคนิค";
         break;       
       case 5:
-        currentImg = b.src;
-        title = "Main Dashboard";
-        description = "Overview of health statistics.";
+        currentImg = d.src;
+        title = "Radiologist Worklist Screen";
+        description = "รายการงานของรังสีแพทย์ ซึ่งเป็นจุดรวมเคสที่ตรวจเสร็จแล้วและรอการ Reporting";
         break;
       case 6:
-        currentImg = c.src;
-        title = "Main Dashboard";
-        description = "Overview of health statistics.";
+        currentImg = g.src;
+        title = "Radiologist Reporting Screen";
+        description = "หมอจะพิมพ์รายละเอียดคำวินิจฉัยลงในช่องนี้ โดยปกติจะมีการดึง Template จากด้านขวาล่างมาวางเพื่อความรวดเร็ว";
         break;
       case 7:
-        currentImg = d.src;
-        title = "Main Dashboard";
-        description = "Overview of health statistics.";
+        currentImg = h.src;
+        title = "Radiological Addendum Screen";
+        description = "หน้าจอฟังก์ชันการแก้ไขหรือเพิ่มเติมข้อมูลในรายงานที่ถูกส่งผลไปเรียบร้อยแล้ว เมื่อกด Search จะปรากฏรายชื่อผู้ป่วยด้านล่างเพื่อคลิกเข้าไปทำการเพิ่มบันทึกเพิ่มเติมในรายงานฉบับนั้น";
         break;
       case 8:
-        currentImg = e.src;
-        title = "Main Dashboard";
-        description = "Overview of health statistics.";
+        currentImg = a1.src;
+        title = "Radiological Search Reported Patient Screen";
+        description = "เรียกดูรายงานผลการตรวจที่เสร็จสมบูรณ์แล้ว";
         break;
       case 9:
-        currentImg = f.src;
-        title = "Main Dashboard";
-        description = "Overview of health statistics.";
+        currentImg = a2.src;
+        title = "Search Screen";
+        description = "เมนู Search หลักของระบบโดยแบ่งออกเป็น 2 รูปแบบการค้นหา 1.Search Patient เน้นการหาข้อมูลโดยใช้ข้อมูลประจำตัวของคนไข้เป็นหลัก 2.Search Study เน้นการหาข้อมูลตามเงื่อนไข";
         break;
       case 10:
-        currentImg = g.src;
-        title = "Main Dashboard";
-        description = "Overview of health statistics.";
+        currentImg = a4.src;
+        title = "Tool My User Setting Screen";
+        description = "User Setting ภายใต้เมนู Tools ซึ่งใช้สำหรับจัดการข้อมูลส่วนตัวและปรับแต่งการใช้งานของเจ้าหน้าที่แต่ละคน";
         break;
       case 11:
-        currentImg = h.src;
-        title = "Main Dashboard";
-        description = "Overview of health statistics.";
+        currentImg = a6.src;
+        title = "Tool Procedure CODE Screen";
+        description = "Procedure ภายใต้เมนู Tools ซึ่งทำหน้าที่เป็น ฐานข้อมูลกลาง ของรายการตรวจทั้งหมดในระบบ RIS เพื่อให้ Admin ตั้งค่าว่า ที่นี่ตรวจท่าไหนได้บ้าง และแต่ละท่าราคาเท่าไหร่";
         break;
       case 12:
-        currentImg = i.src;
-        title = "Main Dashboard";
-        description = "Overview of health statistics.";
+        currentImg = a7.src;
+        title = " Tool Re-assign Screen";
+        description = "การมอบหมายงานใหม่ ภายใต้เมนู Tools ซึ่งใช้สำหรับจัดการเปลี่ยนตัวรังสีแพทย์ผู้รับผิดชอบเคสนั้นๆ";
         break;
       case 13:
-        currentImg = k.src;
-        title = "Main Dashboard";
-        description = "Overview of health statistics.";
-        break; 
-      case 14:
-        currentImg = a1.src;
-        title = "Main Dashboard";
-        description = "Overview of health statistics.";
-        break; 
-      case 15:
-        currentImg = a2.src;
-        title = "Main Dashboard";
-        description = "Overview of health statistics.";
-        break;
-      case 16:
-        currentImg = a3.src;
-        title = "Main Dashboard";
-        description = "Overview of health statistics.";
-        break; 
-      case 17:
-        currentImg = a4.src;
-        title = "Main Dashboard";
-        description = "Overview of health statistics.";
-        break;  
-      case 18:
-        currentImg = a5.src;
-        title = "Main Dashboard";
-        description = "Overview of health statistics.";
-        break;
-      case 19:
-        currentImg = a6.src;
-        title = "Main Dashboard";
-        description = "Overview of health statistics.";
-        break;
-      case 20:
-        currentImg = a7.src;
-        title = "Main Dashboard";
-        description = "Overview of health statistics.";
-        break;  
-      case 21:
         currentImg = a8.src;
-        title = "Main Dashboard";
-        description = "Overview of health statistics.";
-        break;                                                                     
-        // เพิ่ม case 4, 5, 6 ได้ที่นี่
+        title = "Tools Administrator Screen";
+        description = "หน้ารวมการ edits และเพิ่มหรือลบ ในหน้าต่างๆที่ admin มีสิทธิ์ที่จะแก้ไข , ลบ , เพิ่มข้อมูล ";
+        break; 
+      
     }
 
     return (
       <div
         key={num}
         className="bg-white rounded-2xl overflow-hidden shadow-card border border-primary/[0.06] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card-hover"
+        onClick={() => handleImageClick(currentImg ?? "", title, description)}
       >
         <div className="bg-gradient-to-br from-bg-section to-[#E0ECFF] flex items-center justify-center text-primary font-semibold border-b-2 border-dashed border-primary/25 min-h-[200px] text-center p-5">
           {currentImg ? (
@@ -609,6 +606,36 @@ export default function Home() {
 </div>
       </section>
 
+    {/* ✅ Lightbox Overlay — วางก่อน <Footer /> */}
+{selectedImage && (
+  <div
+    className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+    onClick={closeLightbox}
+  >
+    <div
+      className="relative max-w-4xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <button
+        onClick={closeLightbox}
+        className="absolute top-3 right-3 z-10 bg-black/50 text-white rounded-full w-9 h-9 flex items-center justify-center hover:bg-black/70 transition-colors text-sm font-medium"
+      >
+        ✕
+      </button>
+      <div className="flex items-center justify-center bg-gray-100 max-h-[75vh] overflow-hidden">
+        <img
+          src={selectedImage.img}
+          alt={selectedImage.title}
+          className="w-full h-full object-contain max-h-[75vh]"
+        />
+      </div>
+      <div className="p-5">
+        <p className="font-semibold text-foreground text-base mb-1">{selectedImage.title}</p>
+        <p className="text-muted text-sm">{selectedImage.description}</p>
+      </div>
+    </div>
+  </div>
+)}
       <Footer />
     </>
   );
